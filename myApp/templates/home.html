@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Currency</title>
+</head>
+  <body>
+    {% if request.GET.sum and request.GET.fromCur and request.GET.toCur %}
+        <h1>{{message}}</h1>
+    {% else %}
+      <form method="get" action="{% url 'home' %}">
+          <div>
+              <p>Enter amount of money:</p>
+              <input type="number" name="sum" value="{{request.GET.sum}}">
+              <p>From currency (For example "USD"):</p>
+              <input type="text" name="fromCur" value="{{request.GET.fromCur}}">
+              <p>To currency (For example "UAH"):</p>
+              <input type="text" name="toCur" value="{{request.GET.toCur}}">
+          </div>
+          <button type="submit">Submit</button>
+      </form>
+    {% endif %}
+  </body>
+</html>
